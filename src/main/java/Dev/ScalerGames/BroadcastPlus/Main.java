@@ -55,10 +55,9 @@ public class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
-
+        Util.logger("&cDisabled BroadcastPlus");
     }
 
-    //
 
     public static Main getInstance() {
         return plugin;
