@@ -1,0 +1,7 @@
+Sound Broadcast
+GUI Update adding head support
+Permission broadcast
+bossbar broadcast
+timed broadcast - repeted auto broadcast
+emoji support
+Preset upgrades
