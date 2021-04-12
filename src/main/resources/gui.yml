@@ -1,0 +1,10 @@
+#This is not yet functional. It will be introduced in a future update!
+Menus:
+  example:
+    name: '&3Example GUI'
+    size: 27
+    items:
+      0:
+        item: 'DIRT'
+        slot: 0
+        display-name: '%player_name%'
