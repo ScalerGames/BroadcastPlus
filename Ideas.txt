@@ -1,7 +1,8 @@
-Sound Broadcast
-GUI Update adding head support
-Permission broadcast
-bossbar broadcast
-timed broadcast - repeted auto broadcast
-emoji support
-Preset upgrades
+##Possible Upcomming features
+1)Sound Broadcast
+2)GUI Update adding head support
+3)Permission broadcast
+4)Bossbar broadcast
+5)Timed broadcast - repeted auto broadcast
+6)Emoji support
+7)Preset upgrades
