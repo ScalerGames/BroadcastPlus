@@ -1,0 +1,22 @@
+main: Dev.ScalerGames.BroadcastPlus.Main
+name: BroadcastPlus
+version: 2.4.0
+api-version: 1.13
+author: ScalerGames
+description: A Minecraft Broadcasting Plugin.
+softdepend:
+  - PlaceholderAPI
+  - LuckPerms
+  - HeadDatabase
+loadbefore:
+  - Essentials
+commands:
+  broadcast:
+  broadcastplus:
+    aliases: [bp]
+  broadcastworld:
+    aliases: [bw]
+  localbroadcast:
+    aliases: [lb]
+  groupbroadcast:
+    aliases: [gb]
