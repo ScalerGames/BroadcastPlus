@@ -41,6 +41,13 @@ public class Format {
             }
         }
 
+        msg = msg.replace(":heart:", "♥").replace(":tick:", "✔").replace(":cross:", "✖")
+                .replace(":warn:", "⚠").replace(":smile:", "☺").replace(":happy:", "☻").replace(":sad:", "☹").replace(":tickbox:", "☑")
+                .replace(":crossbox:", "☒").replace(":star:", "⭐").replace(":sword:", "⚔").replace(":pickaxe:", "⛏").replace(":axe:", "🪓")
+                .replace(":bow:", "🏹").replace(":skull:", "☠").replace(":lightning:", "⚡").replace(":sun:", "☼").replace(":moon:", "☾")
+                .replace("\\n", "\n").replace(":>>:", "≫").replace("<<", "≪");
+
+
         return ChatColor.translateAlternateColorCodes('&', msg);
     }
 

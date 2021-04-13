@@ -2,7 +2,7 @@
 1)Sound Broadcast
 2)GUI Update adding head support
 3)Permission broadcast
-4)Bossbar broadcast
+4)Bossbar broadcast (Added in 2.5.0)
 5)Timed broadcast - repeted auto broadcast
-6)Emoji support
+6)Emoji support (Added in 2.5.0)
 7)Preset upgrades

@@ -14,6 +14,13 @@ TitleFadeIn: 1
 TitleDisplayTime: 20
 TitleFadeOut: 1
 
+BossBar:
+  #These settings are backup settings if the ones provided fail.
+  #Make sure these are correct or the BossBar broadcast will fail.
+  Color: 'RED'
+  Style: 'SOLID'
+  Time: 10
+
 Presets:
   example:
     message:
