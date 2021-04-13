@@ -12,9 +12,11 @@ import Dev.ScalerGames.BroadcastPlus.Completers.GroupBroadcastTab;
 import Dev.ScalerGames.BroadcastPlus.Files.Config;
 import Dev.ScalerGames.BroadcastPlus.Files.Gui;
 import Dev.ScalerGames.BroadcastPlus.Files.Lang;
+import Dev.ScalerGames.BroadcastPlus.Methods.BossBar;
 import Dev.ScalerGames.BroadcastPlus.Methods.Gui.GuiCreator;
 import Dev.ScalerGames.BroadcastPlus.Methods.Gui.GuiListener;
 import Dev.ScalerGames.BroadcastPlus.Utils.Format;
+import Dev.ScalerGames.BroadcastPlus.Utils.UpdateChecker;
 import Dev.ScalerGames.BroadcastPlus.Utils.Util;
 import me.arcaniax.hdb.api.HeadDatabaseAPI;
 import org.bukkit.Bukkit;
@@ -51,11 +53,15 @@ public class Main extends JavaPlugin implements Listener {
             Broadcast.presets.add(getConfig().getConfigurationSection("Presets." + preset.substring(preset.lastIndexOf(".") + 1)).getName());
         }
         Util.logger("&3GUI List: " + GuiCreator.list.toString() + " Preset List: " + Broadcast.presets.toString());
+        new UpdateChecker(this, 87816).getVersion(version -> {
+            if (!this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                Util.logger("&6There is a new update on Spigot.");
+            }
+        });
     }
 
     @Override
     public void onDisable() {
-        Util.logger("&cDisabled BroadcastPlus");
     }
 
 

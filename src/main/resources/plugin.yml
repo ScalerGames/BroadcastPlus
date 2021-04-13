@@ -1,6 +1,6 @@
 main: Dev.ScalerGames.BroadcastPlus.Main
 name: BroadcastPlus
-version: 2.4.0
+version: 2.5.0
 api-version: 1.13
 author: ScalerGames
 description: A Minecraft Broadcasting Plugin.

@@ -15,6 +15,7 @@ public class BroadcastTAB implements TabCompleter {
         if (arguments.isEmpty())  {
             arguments.add("chat"); arguments.add("title");
             arguments.add("bar"); arguments.add("gui");
+            arguments.add("boss");
         }
 
         List<String> result = new ArrayList<String>();

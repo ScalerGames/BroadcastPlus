@@ -29,7 +29,6 @@ public class ItemHandler {
             lore(meta, p, name, itemName);
             enchants(meta, p, name, itemName);
             flags(meta, p, name, itemName);
-            MetaHandler.head(item, p, name, itemName);
 
             item.setItemMeta(meta);
 
