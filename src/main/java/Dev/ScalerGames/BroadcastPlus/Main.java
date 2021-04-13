@@ -35,6 +35,7 @@ public class Main extends JavaPlugin implements Listener {
     public static Main plugin;
 
     public static List<String> worlds = new ArrayList<String>();
+    public static BossBar bar;
 
     @Override
     public void onEnable() {
@@ -58,6 +59,7 @@ public class Main extends JavaPlugin implements Listener {
                 Util.logger("&6There is a new update on Spigot.");
             }
         });
+        bar = new BossBar(this);
     }
 
     @Override

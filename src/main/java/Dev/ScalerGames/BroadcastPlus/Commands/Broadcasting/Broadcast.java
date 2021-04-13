@@ -81,9 +81,9 @@ public class Broadcast implements CommandExecutor {
 
                     if (args[0].equalsIgnoreCase("boss")) {
                         if (args.length >= 5) {
-                            new BossBar(Main.plugin).createBar(Integer.parseInt(args[1]), args[2], args[3], Util.stringJoin(args, 4));
+                            Main.bar.createBar(Integer.parseInt(args[1]), args[2], args[3], Util.stringJoin(args, 4));
                             for (Player p : Bukkit.getOnlinePlayers()) {
-                                new BossBar(Main.plugin).addPlayer(p);
+                                Main.bar.addPlayer(p);
                             }
                         } else {
                             s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("broadcast-boss-usage")));

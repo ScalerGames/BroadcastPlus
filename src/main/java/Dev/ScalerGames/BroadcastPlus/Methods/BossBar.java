@@ -46,6 +46,7 @@ public class BossBar {
                     bar.removeAll();
                     bar.hide();
                     bar = null;
+                    Bukkit.getScheduler().cancelTask(taskID);
                 } else {
                     bar.setProgress(progress);
                     progress = progress - time;
