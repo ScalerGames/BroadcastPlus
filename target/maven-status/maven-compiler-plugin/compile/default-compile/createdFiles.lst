@@ -19,6 +19,7 @@ Dev\ScalerGames\BroadcastPlus\Files\Gui.class
 Dev\ScalerGames\BroadcastPlus\Commands\BroadcastPlus.class
 Dev\ScalerGames\BroadcastPlus\Commands\Broadcasting\GroupBroadcast.class
 Dev\ScalerGames\BroadcastPlus\Methods\ActionBar$1.class
+Dev\ScalerGames\BroadcastPlus\Main$1.class
 Dev\ScalerGames\BroadcastPlus\Utils\Format.class
 Dev\ScalerGames\BroadcastPlus\Main.class
 Dev\ScalerGames\BroadcastPlus\Commands\Broadcasting\Broadcast.class
