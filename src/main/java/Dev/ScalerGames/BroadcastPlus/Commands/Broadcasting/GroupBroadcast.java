@@ -134,6 +134,29 @@ public class GroupBroadcast implements CommandExecutor {
 
                     }
 
+                    if (args[0].equalsIgnoreCase("boss")) {
+                        if (lpEnabled()) {
+                            if (args.length >= 6 && Util.isInt(args[2])) {
+                                Main.bar.createBar(Integer.parseInt(args[2]), args[3], args[4], Util.stringJoin(args, 5));
+                                Group group = LuckPermsProvider.get().getGroupManager().getGroup(args[1]);
+
+                                if (group == null) {
+                                    s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + "&cThis group was not found"));
+                                } else {
+                                    for (Player p : Bukkit.getOnlinePlayers()) {
+                                        if (isPlayerInGroup(p, args[1])) {
+                                            Main.bar.addPlayer(p);
+                                        }
+                                    }
+                                }
+                            } else {
+                                s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("group-broadcast-boss-usage")));
+                            }
+                        } else {
+                            s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + "&cLuckPerms is not enabled"));
+                        }
+                    }
+
                 } else {
                     s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("group-broadcast-usage")));
                 }

@@ -85,7 +85,7 @@ public class LocalBroadcast implements CommandExecutor {
                                 if (Util.isInt(args[1])) {
                                     for (Player player : Bukkit.getOnlinePlayers()) {
                                         if (player.getLocation().distance(player.getLocation()) <= Integer.parseInt(args[1])) {
-                                            GuiCreator.generate(p, args[2]);
+                                            GuiCreator.generate(player, args[2]);
                                         }
                                     }
                                 } else {
@@ -93,6 +93,19 @@ public class LocalBroadcast implements CommandExecutor {
                                 }
                             } else {
                                 s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("local-broadcast-gui-usage")));
+                            }
+                        }
+
+                        if (args[0].equalsIgnoreCase("boss")) {
+                            if (args.length >= 6 && Util.isInt(args[2]) && Util.isInt(args[1])) {
+                                Main.bar.createBar(Integer.parseInt(args[2]), args[3], args[4], Util.stringJoin(args, 5));
+                                for (Player player : Bukkit.getOnlinePlayers()) {
+                                    if (player.getLocation().distance(player.getLocation()) <= Integer.parseInt(args[1])) {
+                                        Main.bar.addPlayer(player);
+                                    }
+                                }
+                            } else {
+                                s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("local-broadcast-boss-usage")));
                             }
                         }
 

@@ -44,22 +44,42 @@ public class BroadcastTAB implements TabCompleter {
 
         List<String> cResult = new ArrayList<String>();
         if (args[0].equalsIgnoreCase("boss")) {
-            if (args.length == 3) {
-                for (String a : colors) {
-                    if (a.toLowerCase().startsWith(args[2].toLowerCase()))
-                        cResult.add(a);
+            if (label.equalsIgnoreCase("localbroadcast") || label.equalsIgnoreCase("lb")) {
+                if (args.length == 4) {
+                    for (String a : colors) {
+                        if (a.toLowerCase().startsWith(args[3].toLowerCase()))
+                            cResult.add(a);
+                    }
+                    return cResult;
                 }
-                return cResult;
+            } else {
+                if (args.length == 3) {
+                    for (String a : colors) {
+                        if (a.toLowerCase().startsWith(args[2].toLowerCase()))
+                            cResult.add(a);
+                    }
+                    return cResult;
+                }
             }
         }
         List<String> sResult = new ArrayList<String>();
         if (args[0].equalsIgnoreCase("boss")) {
-            if (args.length == 4) {
-                for (String a : styles) {
-                    if (a.toLowerCase().startsWith(args[3].toLowerCase()))
-                        sResult.add(a);
+            if (label.equalsIgnoreCase("localbroadcast") || label.equalsIgnoreCase("lb")) {
+                if (args.length == 5) {
+                    for (String a : styles) {
+                        if (a.toLowerCase().startsWith(args[4].toLowerCase()))
+                            sResult.add(a);
+                    }
+                    return sResult;
                 }
-                return sResult;
+            } else {
+                if (args.length == 4) {
+                    for (String a : styles) {
+                        if (a.toLowerCase().startsWith(args[3].toLowerCase()))
+                            sResult.add(a);
+                    }
+                    return sResult;
+                }
             }
         }
 

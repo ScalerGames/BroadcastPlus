@@ -95,13 +95,32 @@ public class BroadcastWorld implements CommandExecutor {
                                     GuiCreator.generate(p, args[2]);
                                 }
                             }
+                        } else {
+                            s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + "&cInvalid World"));
                         }
                     } else {
                         s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + "&cInvalid GUI Name"));
                     }
                 }
 
-                if (!(args[0].equalsIgnoreCase("chat") || args[0].equalsIgnoreCase("title") || args[0].equalsIgnoreCase("bar") || args[0].equalsIgnoreCase("help") || args[0].equalsIgnoreCase("gui"))) {
+                if (args[0].equalsIgnoreCase("boss")) {
+                    if (args.length >= 6 && Util.isInt(args[2])) {
+                        if (Main.worlds.contains(args[1].toLowerCase())) {
+                            Main.bar.createBar(Integer.parseInt(args[2]), args[3], args[4], Util.stringJoin(args, 5));
+                            for (Player p : Bukkit.getOnlinePlayers()) {
+                                if (p.getWorld().getName().equalsIgnoreCase(args[1])) {
+                                    Main.bar.addPlayer(p);
+                                }
+                            }
+                        } else {
+                            s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + "&cInvalid World"));
+                        }
+                    } else {
+                        s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("broadcast-world-boss-usage")));
+                    }
+                }
+
+                if (!(args[0].equalsIgnoreCase("chat") || args[0].equalsIgnoreCase("title") || args[0].equalsIgnoreCase("bar") || args[0].equalsIgnoreCase("help") || args[0].equalsIgnoreCase("gui") || args[0].equalsIgnoreCase("boss"))) {
                     s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("broadcast-world-usage")).replace("{cmd}", label));
                 }
 

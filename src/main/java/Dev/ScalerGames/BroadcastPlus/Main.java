@@ -12,6 +12,7 @@ import Dev.ScalerGames.BroadcastPlus.Completers.GroupBroadcastTab;
 import Dev.ScalerGames.BroadcastPlus.Files.Config;
 import Dev.ScalerGames.BroadcastPlus.Files.Gui;
 import Dev.ScalerGames.BroadcastPlus.Files.Lang;
+import Dev.ScalerGames.BroadcastPlus.Methods.AutoBroadcast;
 import Dev.ScalerGames.BroadcastPlus.Methods.BossBar;
 import Dev.ScalerGames.BroadcastPlus.Methods.Gui.GuiCreator;
 import Dev.ScalerGames.BroadcastPlus.Methods.Gui.GuiListener;
@@ -23,20 +24,18 @@ import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Main extends JavaPlugin implements Listener {
 
     public static Main plugin;
-
     public static List<String> worlds = new ArrayList<String>();
     public static BossBar bar;
+    public static AutoBroadcast ab;
 
     @Override
     public void onEnable() {
@@ -61,7 +60,8 @@ public class Main extends JavaPlugin implements Listener {
             }
         });
         bar = new BossBar(this);
-        autoMessage();
+        ab = new AutoBroadcast(this);
+        ab.autoMessage();
     }
 
     @Override
@@ -115,20 +115,6 @@ public class Main extends JavaPlugin implements Listener {
 
     public void enableListeners() {
         Bukkit.getPluginManager().registerEvents(new GuiListener(), this);
-    }
-
-    public void autoMessage() {
-        if (Main.getInstance().getConfig().getBoolean("AutoBroadcast.enabled")) {
-            getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
-                @Override
-                public void run() {
-                    String msg = Main.getInstance().getConfig().getStringList("AutoBroadcast.messages").get(new Random().nextInt(Main.getInstance().getConfig().getStringList("AutoBroadcast.messages").size()));
-                    for (Player p : Bukkit.getOnlinePlayers()) {
-                        p.sendMessage(Format.placeholder(p, msg));
-                    }
-                }
-            }, 0L, 20L * Main.getInstance().getConfig().getInt("AutoBroadcast.time"));
-        }
     }
 
 }
