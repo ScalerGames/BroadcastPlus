@@ -26,7 +26,7 @@ public class BroadcastPlus implements CommandExecutor {
 
                 if (args[0].equalsIgnoreCase("version")) {
                     if (s.hasPermission("bp.version")) {
-                        s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + "&3The server is running version "
+                        s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + "&9The server is running version "
                         + Main.getInstance().getDescription().getVersion() + " of BroadcastPlus"));
                     } else {
                         s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("broadcast-plus-permission")));
@@ -41,7 +41,7 @@ public class BroadcastPlus implements CommandExecutor {
                         Util.logger("&2Successfully reloaded the config.yml");
                         Util.logger("&2Successfully reloaded the lang.yml");
                         Util.logger("&2Successfully reloaded the gui.yml");
-                        s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + "&2Successfully reloaded all BroadcastPlus's files"));
+                        s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + "&9Successfully reloaded all BroadcastPlus's files"));
                         for (String menus : Gui.getGuiConfig().getConfigurationSection("Menus").getKeys(false)) {
                             if (!GuiCreator.list.contains(Format.stripColor(Gui.getGuiConfig().getString("Menus." + menus.substring(menus.lastIndexOf(".") + 1) + ".name")))) {
                                 GuiCreator.list.add(Format.stripColor(Gui.getGuiConfig().getString("Menus." + menus.substring(menus.lastIndexOf(".") + 1) + ".name")));
@@ -53,10 +53,30 @@ public class BroadcastPlus implements CommandExecutor {
                             }
                         }
                         Util.logger("&3GUI List: " + GuiCreator.list.toString() + " Preset List: " + Broadcast.presets.toString());
+                    } else {
+                        s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("broadcast-plus-permission")));
                     }
                 }
 
-                if (!(args[0].equalsIgnoreCase("version") || args[0].equalsIgnoreCase("reload"))) {
+                if (args[0].equalsIgnoreCase("help")) {
+                    if (s.hasPermission("bp.help")) {
+                        s.sendMessage(Format.color("&3&lBroadcast: &9/broadcast [method] [message]"));
+                        s.sendMessage(Format.color("&3&lBroadcastWorld: &9/broadcastworld [method] [world] [message]"));
+                        s.sendMessage(Format.color("&3&lLocalBroadcast: &9/localbroadcast [method] [range] [message]"));
+                        s.sendMessage(Format.color("&3&lGroupBroadcast: &9/groupbroadcast [method] [group] [message]"));
+                        s.sendMessage(Format.color("&3&lMethods: &9Chat, Title, Bar, GUI, Boss"));
+                    } else {
+                        s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("broadcast-plus-permission")));
+                    }
+                }
+
+                if (args[0].equalsIgnoreCase("wiki")) {
+                    if (s.hasPermission("bp.wiki")) {
+                        s.sendMessage(Format.color("&3&lWiki: &9https://github.com/ScalerGames/BroadcastPlus/wiki"));
+                    }
+                }
+
+                if (!(args[0].equalsIgnoreCase("version") || args[0].equalsIgnoreCase("reload") || args[0].equalsIgnoreCase("help") || args[0].equalsIgnoreCase("wiki"))) {
                     s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + "&cUsage: /" + label + " [reload|version]"));
                 }
 

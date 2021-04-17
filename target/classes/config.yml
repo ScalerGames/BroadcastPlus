@@ -18,11 +18,12 @@ AutoBroadcast:
   #If auto broadcast is enabled or not.
   enabled: true
   #The time in seconds between broadcasting. This example is 5 minutes
-  time: 30
+  time: 300
   messages:
     - 'Test1'
     - 'Test2'
     - 'Test3'
+    - 'preset:example'
 
 BossBar:
   #These settings are backup settings if the ones provided fail.

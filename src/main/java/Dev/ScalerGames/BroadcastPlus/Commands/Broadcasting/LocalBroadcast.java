@@ -110,7 +110,7 @@ public class LocalBroadcast implements CommandExecutor {
                         }
 
                     } else {
-                        s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("lang-broadcast-usage")));
+                        s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("local-broadcast-usage")));
                     }
 
                 }
