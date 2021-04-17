@@ -16,6 +16,7 @@ import Dev.ScalerGames.BroadcastPlus.Methods.BossBar;
 import Dev.ScalerGames.BroadcastPlus.Methods.Gui.GuiCreator;
 import Dev.ScalerGames.BroadcastPlus.Methods.Gui.GuiListener;
 import Dev.ScalerGames.BroadcastPlus.Utils.Format;
+import Dev.ScalerGames.BroadcastPlus.Utils.Placeholders;
 import Dev.ScalerGames.BroadcastPlus.Utils.UpdateChecker;
 import Dev.ScalerGames.BroadcastPlus.Utils.Util;
 import org.bukkit.Bukkit;
@@ -102,16 +103,12 @@ public class Main extends JavaPlugin implements Listener {
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             Bukkit.getPluginManager().registerEvents(this, this);
+            new Placeholders().register();
             getLogger().info(Format.color("&2Successfully hooked into PlaceholderAPI"));
         }
         if (Bukkit.getPluginManager().getPlugin("LuckPerms") != null) {
             Bukkit.getPluginManager().registerEvents(this, this);
             getLogger().info(Format.color("&2Successfully hooked into LuckPerms"));
-        }
-
-        if  (Bukkit.getPluginManager().getPlugin("HeadDatabase") != null) {
-            Bukkit.getPluginManager().registerEvents(this, this);
-            getLogger().info(Format.color("&2Successfully hooked into HeadDatabase"));
         }
 
     }

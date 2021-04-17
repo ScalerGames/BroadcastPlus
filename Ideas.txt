@@ -6,3 +6,5 @@
 5)Timed broadcast - repeted auto broadcast
 6)Emoji support (Added in 2.5.0)
 7)Preset upgrades
+8)Permission Rework - Vault
+9)Cost for /broadcast
