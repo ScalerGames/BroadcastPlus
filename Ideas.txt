@@ -3,8 +3,8 @@
 2)GUI Update adding head support
 3)Permission broadcast
 4)Bossbar broadcast (Added in 2.5.0)
-5)Timed broadcast - repeted auto broadcast
+5)Timed broadcast - repeted auto broadcast (Added in 2.6.0)
 6)Emoji support (Added in 2.5.0)
-7)Preset upgrades
+7)Preset upgrades (Added in 2.6.0)
 8)Permission Rework - Vault
 9)Cost for /broadcast

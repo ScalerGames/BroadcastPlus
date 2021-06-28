@@ -7,6 +7,7 @@ import Dev.ScalerGames.BroadcastPlus.Methods.Gui.GuiCreator;
 import Dev.ScalerGames.BroadcastPlus.Methods.Title;
 import Dev.ScalerGames.BroadcastPlus.Utils.Format;
 import Dev.ScalerGames.BroadcastPlus.Utils.Util;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,7 +23,7 @@ public class Broadcast implements CommandExecutor {
 
     public boolean onCommand(CommandSender s, Command cmd, String label, String[] args) {
 
-        if (label.equalsIgnoreCase("broadcast")) {
+        if (label.equalsIgnoreCase("broadcast") || label.equalsIgnoreCase("announce")) {
 
             if (s.hasPermission("bp.broadcast")) {
 
@@ -63,6 +64,11 @@ public class Broadcast implements CommandExecutor {
                     }
 
                     if (args[0].equalsIgnoreCase("title")) {
+                        if (Main.getInstance().getConfig().getConfigurationSection("Presets").getKeys(false).contains(args[1])) {
+                            for (Player p : Bukkit.getOnlinePlayers()) {
+                                Title.sendTitle(Main.getInstance().getConfig().getString("Presets."), p);
+                            }
+                        }
                         for (Player p : Bukkit.getOnlinePlayers()) {
                             Title.sendTitle(Util.stringJoin(args, 1), p);
                         }

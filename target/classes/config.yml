@@ -14,6 +14,9 @@ TitleFadeIn: 1
 TitleDisplayTime: 20
 TitleFadeOut: 1
 
+#Commands:
+
+
 AutoBroadcast:
   #If auto broadcast is enabled or not.
   enabled: true

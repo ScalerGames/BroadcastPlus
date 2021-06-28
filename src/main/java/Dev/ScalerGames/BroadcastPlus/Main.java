@@ -77,20 +77,13 @@ public class Main extends JavaPlugin implements Listener {
         getCommand("broadcast").setExecutor((CommandExecutor)new Broadcast());
         getCommand("broadcast").setTabCompleter((TabCompleter)new BroadcastTAB());
         getCommand("broadcastplus").setExecutor((CommandExecutor)new BroadcastPlus());
-        getCommand("bp").setExecutor((CommandExecutor)new BroadcastPlus());
         getCommand("broadcastplus").setTabCompleter((TabCompleter)new BroadcastPlusTab());
-        getCommand("bp").setTabCompleter((TabCompleter)new BroadcastPlusTab());
         getCommand("broadcastworld").setExecutor((CommandExecutor)new BroadcastWorld());
         getCommand("broadcastworld").setTabCompleter((TabCompleter)new BroadcastWorldTab());
-        getCommand("bw").setExecutor((CommandExecutor)new BroadcastWorld());
         getCommand("localbroadcast").setExecutor((CommandExecutor)new LocalBroadcast());
-        getCommand("lb").setExecutor((CommandExecutor)new LocalBroadcast());
         getCommand("localbroadcast").setTabCompleter((TabCompleter)new BroadcastTAB());
-        getCommand("lb").setTabCompleter((TabCompleter)new BroadcastTAB());
         getCommand("groupbroadcast").setExecutor((CommandExecutor)new GroupBroadcast());
-        getCommand("gb").setExecutor((CommandExecutor)new GroupBroadcast());
         getCommand("groupbroadcast").setTabCompleter((TabCompleter)new GroupBroadcastTab());
-        getCommand("gb").setTabCompleter((TabCompleter)new GroupBroadcastTab());
     }
 
     public void enableFiles() {

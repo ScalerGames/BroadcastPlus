@@ -2,6 +2,7 @@ package Dev.ScalerGames.BroadcastPlus.Utils;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.ChatColor;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -11,7 +12,7 @@ import java.util.regex.Pattern;
 public class Format {
 
     public static String color(String msg) {
-        if (Bukkit.getVersion().contains("1.16")) {
+        if (Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17")) {
             Pattern pattern = Pattern.compile("#[a-fA-F0-9]{6}");
             Matcher match = pattern.matcher(msg);
             while (match.find()) {
@@ -31,7 +32,7 @@ public class Format {
 
         }
 
-        if (Bukkit.getVersion().contains("1.16")) {
+        if (Bukkit.getVersion().contains("1.16") || Bukkit.getVersion().contains("1.17")) {
             Pattern pattern = Pattern.compile("#[a-fA-F0-9]{6}");
             Matcher match = pattern.matcher(msg);
             while (match.find()) {
@@ -47,6 +48,11 @@ public class Format {
                 .replace(":bow:", "🏹").replace(":skull:", "☠").replace(":lightning:", "⚡").replace(":sun:", "☼").replace(":moon:", "☾")
                 .replace("\\n", "\n").replace(":>>:", "≫").replace("<<", "≪");
 
+
+        if (msg.contains("<center>")) {
+            msg = msg.replace("<center>", "");
+            msg = StringUtils.center(msg, 52-msg.length() / 2);
+        }
 
         return ChatColor.translateAlternateColorCodes('&', msg);
     }
