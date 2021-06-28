@@ -27,8 +27,6 @@ public class BroadcastWorld implements CommandExecutor {
 
                 if (args.length >= 2) {
 
-                    String prefix = Main.getInstance().getConfig().getString("BroadcastPrefix");
-
                     if (args[0].equalsIgnoreCase("chat")) {
                         if (Main.worlds.contains(args[1].toLowerCase())) {
                             if (Broadcast.presets.contains(args[2])) {
@@ -42,7 +40,7 @@ public class BroadcastWorld implements CommandExecutor {
                             } else {
                                 for (Player p : Bukkit.getOnlinePlayers()) {
                                     if (p.getWorld().getName().equalsIgnoreCase(args[1])) {
-                                        p.sendMessage(Format.placeholder(p, Main.getInstance().getConfig().getString("BroadcastPrefix") + ChatColor.RESET + Util.stringJoin(args, 2)));
+                                        p.sendMessage(Format.placeholder(p, Main.getInstance().getConfig().getString("BroadcastPrefix") + "&r " + Util.stringJoin(args, 2)));
                                     }
                                 }
                             }
