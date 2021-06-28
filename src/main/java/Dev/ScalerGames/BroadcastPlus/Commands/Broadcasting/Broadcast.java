@@ -7,7 +7,6 @@ import Dev.ScalerGames.BroadcastPlus.Methods.Gui.GuiCreator;
 import Dev.ScalerGames.BroadcastPlus.Methods.Title;
 import Dev.ScalerGames.BroadcastPlus.Utils.Format;
 import Dev.ScalerGames.BroadcastPlus.Utils.Util;
-import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -105,6 +104,8 @@ public class Broadcast implements CommandExecutor {
 
                 }
 
+            } else {
+                s.sendMessage(Format.color(Lang.getLangConfig().getString("prefix") + Lang.getLangConfig().getString("broadcast-permission")));
             }
 
         }

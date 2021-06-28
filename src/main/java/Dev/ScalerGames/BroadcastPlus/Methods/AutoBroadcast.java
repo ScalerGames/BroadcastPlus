@@ -3,6 +3,7 @@ package Dev.ScalerGames.BroadcastPlus.Methods;
 import Dev.ScalerGames.BroadcastPlus.Main;
 import Dev.ScalerGames.BroadcastPlus.Utils.Format;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -34,7 +35,7 @@ public class AutoBroadcast {
                     } else {
                         Bukkit.getConsoleSender().sendMessage(Format.color(Main.getInstance().getConfig().getString("BroadcastPrefix") + msg));
                         for (Player p : Bukkit.getOnlinePlayers()) {
-                            p.sendMessage(Format.placeholder(p, Main.getInstance().getConfig().getString("BroadcastPrefix") + "&r " + msg));
+                            p.sendMessage(Format.placeholder(p, Main.getInstance().getConfig().getString("BroadcastPrefix") + ChatColor.RESET + msg));
                         }
                     }
                 }
